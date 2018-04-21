@@ -1,18 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+
+    <Button
+        android:id="@+id/gumb_vnesiStroske"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:text="Vnesi"
+        tools:text="Vnesi" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/text_naslov"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Vodenje financ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        tools:text="Vodenje financ" />
+
+    <EditText
+        android:id="@+id/vnos_kolicinaStroskov"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:ems="10"
+        android:hint="Vnesi kolicino stroskov"
+        android:inputType="number"
+        android:gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/vnos_tipStroskov"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="141dp"
+        android:ems="10"
+        android:hint="Vnesi tip stroskov"
+        android:inputType="textPersonName"
+        android:gravity="center_horizontal"/>
+
+    <Spinner
+        android:id="@+id/spust_tipStroskov"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="198dp" />
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="209dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="2dp"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/divider_horizontal_dark" />
+
+    <EditText
+        android:id="@+id/vnos_prihodkov"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gumb_vnesiPrihodke"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Vnesi prihodke"
+        android:inputType="number"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/gumb_vnesiPrihodke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="101dp"
+        android:text="Vnesi" />
+
+</RelativeLayout>
