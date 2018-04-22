@@ -11,7 +11,9 @@
         android:id="@+id/gumb_vnesiStroske"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="191dp"
         android:text="Vnesi"
         tools:text="Vnesi" />
 
@@ -31,13 +33,12 @@
         style="@android:style/Widget.AutoCompleteTextView"
         android:layout_width="195dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/text_pokaziDatum"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="87dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Vnesi kolicino stroskov"
-        android:inputType="number"
-        android:gravity="center_horizontal"/>
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/vnos_tipStroskov"
@@ -45,19 +46,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="141dp"
+        android:layout_marginTop="189dp"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Vnesi tip stroskov"
-        android:inputType="textPersonName"
-        android:gravity="center_horizontal"/>
+        android:inputType="textPersonName" />
 
     <Spinner
         android:id="@+id/spust_tipStroskov"
         android:layout_width="233dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="198dp" />
+        android:layout_centerInParent="true" />
 
     <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -79,9 +78,9 @@
         android:layout_above="@+id/gumb_vnesiPrihodke"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:gravity="center_horizontal"
         android:hint="Vnesi prihodke"
-        android:inputType="number"
-        android:gravity="center_horizontal"/>
+        android:inputType="number" />
 
     <Button
         android:id="@+id/gumb_vnesiPrihodke"
@@ -89,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="101dp"
+        android:layout_marginBottom="90dp"
         android:text="Vnesi" />
 
     <Button
@@ -110,5 +109,17 @@
         android:layout_alignTop="@+id/gumb_nastavitve"
         android:text="Odpri porocilo"
         tools:text="Odpri porocilo" />
+
+    <Button
+        android:id="@+id/text_pokaziDatum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:onClick="pokaziDatum"
+        android:text="Izberi datum"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        tools:text="Izberi datum" />
 
 </RelativeLayout>

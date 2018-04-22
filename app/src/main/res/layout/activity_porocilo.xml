@@ -35,4 +35,31 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="96dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
+        android:id="@+id/text_stroskiMesec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="134dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <TextView
+        android:id="@+id/text_prihodkiMesec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="177dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/graf_stroski"
+        android:layout_width="match_parent"
+        android:layout_height="301dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="210dp" />
 </RelativeLayout>

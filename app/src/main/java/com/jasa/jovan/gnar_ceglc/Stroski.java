@@ -14,12 +14,14 @@ import java.util.Locale;
 
 public class Stroski {
 
-    private static String dobiDanasnjiDatum(){
+    public static String datum = dobiDanasnjiDatum();
+
+    public static String dobiDanasnjiDatum(){
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         return date;
     }
 
-    private static String dobiTrenutniMesec(){
+    public static String dobiTrenutniMesec(){
         Calendar calendar = Calendar.getInstance();
         String month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
         return month;
@@ -31,7 +33,7 @@ public class Stroski {
         ContentValues values = new ContentValues();
         values.put(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_TIP_STROSKOV, tipStroskov);
         values.put(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_KOLICINA, kolicina);
-        values.put(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_DATUM, dobiDanasnjiDatum());
+        values.put(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_DATUM, datum);
         values.put(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_MESEC, dobiTrenutniMesec());
 
         db.insert(FeedReaderContract.FeedEntryStroski.TABLE_NAME, null, values);
@@ -56,6 +58,30 @@ public class Stroski {
         SQLiteDatabase db = MainActivity.getInstance().getPomocnik().getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + FeedReaderContract.FeedEntryStroski.TABLE_NAME + " WHERE " + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_DATUM + " = '" + dobiDanasnjiDatum() + "'", null);
+        int stroski = 0;
+        while(cursor.moveToNext()){
+            stroski += cursor.getInt(cursor.getColumnIndexOrThrow(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_KOLICINA));
+        }
+
+        return stroski;
+    }
+
+    public static int dobiMesecStroske() {
+        SQLiteDatabase db = MainActivity.getInstance().getPomocnik().getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + FeedReaderContract.FeedEntryStroski.TABLE_NAME + " WHERE " + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_MESEC + " = '" + dobiTrenutniMesec() + "'", null);
+        int stroski = 0;
+        while(cursor.moveToNext()){
+            stroski += cursor.getInt(cursor.getColumnIndexOrThrow(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_KOLICINA));
+        }
+
+        return stroski;
+    }
+
+    public static int dobiStroskeGledeNaTip(String tip){
+        SQLiteDatabase db = MainActivity.getInstance().getPomocnik().getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + FeedReaderContract.FeedEntryStroski.TABLE_NAME + " WHERE " + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_MESEC + " = '" + dobiTrenutniMesec() + "' AND " + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_TIP_STROSKOV + " = '" + tip + "'", null);
         int stroski = 0;
         while(cursor.moveToNext()){
             stroski += cursor.getInt(cursor.getColumnIndexOrThrow(FeedReaderContract.FeedEntryStroski.COLUMN_NAME_KOLICINA));

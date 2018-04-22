@@ -13,6 +13,8 @@ import java.util.Locale;
 
 public class Prihodki {
 
+    public static String datum = dobiDanasnjiDatum();
+
     private static String dobiDanasnjiDatum(){
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         return date;
@@ -29,7 +31,7 @@ public class Prihodki {
 
         ContentValues values = new ContentValues();
         values.put(FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_KOLICINA, kolicina);
-        values.put(FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_DATUM, dobiDanasnjiDatum());
+        values.put(FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_DATUM, datum);
         values.put(FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_MESEC, dobiTrenutniMesec());
 
         db.insert(FeedReaderContract.FeedEntryPrihodki.TABLE_NAME, null, values);
@@ -47,4 +49,15 @@ public class Prihodki {
         return prihodki;
     }
 
+    public static int dobiMesecPrihodke() {
+        SQLiteDatabase db = MainActivity.getInstance().getPomocnik().getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + FeedReaderContract.FeedEntryPrihodki.TABLE_NAME + " WHERE " + FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_MESEC + " = '" + dobiTrenutniMesec() + "'", null);
+        int prihodki = 0;
+        while(cursor.moveToNext()){
+            prihodki += cursor.getInt(cursor.getColumnIndexOrThrow(FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_KOLICINA));
+        }
+
+        return prihodki;
+    }
 }

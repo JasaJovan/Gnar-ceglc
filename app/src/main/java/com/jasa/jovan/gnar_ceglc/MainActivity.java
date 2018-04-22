@@ -1,5 +1,6 @@
 package com.jasa.jovan.gnar_ceglc;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -120,4 +121,8 @@ public class MainActivity extends AppCompatActivity {
         spustTipStroskov.setAdapter(adapter);
     }
 
+    public void pokaziDatum(View view) {
+        DialogFragment fragment = new DatePickerFragment();
+        fragment.show(getFragmentManager(), "datePicker");
+    }
 }
