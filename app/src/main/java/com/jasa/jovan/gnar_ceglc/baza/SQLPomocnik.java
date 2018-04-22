@@ -10,6 +10,7 @@ public class SQLPomocnik extends SQLiteOpenHelper{
             "CREATE TABLE " + FeedReaderContract.FeedEntryStroski.TABLE_NAME + " ("
             + FeedReaderContract.FeedEntryStroski._ID + " INTEGER PRIMARY KEY,"
             + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_TIP_STROSKOV + " TEXT,"
+            + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_MESEC + " TEXT,"
             + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_KOLICINA + " INT,"
             + FeedReaderContract.FeedEntryStroski.COLUMN_NAME_DATUM + " TEXT)";
 
@@ -18,13 +19,12 @@ public class SQLPomocnik extends SQLiteOpenHelper{
 
 
 
-
-
     private static final String SQL_CREATE_STAVEK_PRIHODKI =
             "CREATE TABLE " + FeedReaderContract.FeedEntryPrihodki.TABLE_NAME + " ("
                     + FeedReaderContract.FeedEntryPrihodki._ID + " INTEGER PRIMARY KEY,"
                     + FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_KOLICINA + " INT,"
-                    + FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_DATUM + " TEXT)";
+                    + FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_DATUM + " TEXT,"
+                    + FeedReaderContract.FeedEntryPrihodki.COLUMN_NAME_MESEC + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES_PRIHODKI =
             "DROP TABLE IF EXISTS " + FeedReaderContract.FeedEntryPrihodki.TABLE_NAME;
@@ -32,6 +32,15 @@ public class SQLPomocnik extends SQLiteOpenHelper{
 
 
 
+
+    private static final String SQL_CREATE_STAVEK_LIMIT =
+            "CREATE TABLE " + FeedReaderContract.FeedEntryLimit.TABLE_NAME + " ("
+                    + FeedReaderContract.FeedEntryLimit._ID + " INTEGER PRIMARY KEY,"
+                    + FeedReaderContract.FeedEntryLimit.COLUMN_NAME_LIMIT + " INT,"
+                    + FeedReaderContract.FeedEntryLimit.COLUMN_NAME_DATUM + " TEXT)";
+
+    private static final String SQL_DELETE_ENTRIES_LIMIT =
+            "DROP TABLE IF EXISTS " + FeedReaderContract.FeedEntryLimit.TABLE_NAME;
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "finance.db";
@@ -42,12 +51,14 @@ public class SQLPomocnik extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(SQL_CREATE_STAVEK_LIMIT);
         db.execSQL(SQL_CREATE_STAVEK_STROSKI);
         db.execSQL(SQL_CREATE_STAVEK_PRIHODKI);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(SQL_DELETE_ENTRIES_LIMIT);
         db.execSQL(SQL_DELETE_ENTRIES_STROSKI);
         db.execSQL(SQL_DELETE_ENTRIES_PRIHODKI);
         onCreate(db);

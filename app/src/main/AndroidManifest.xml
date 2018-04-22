@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NastavitveActivity"></activity>
+        <activity android:name=".NastavitveActivity" />
+        <activity android:name=".PorociloActivity"></activity>
     </application>
 
 </manifest>

@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NastavitveActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/text_naslov_nastavitve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="Nastavitve"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="143dp"
+        tools:text="Nastavitve" />
+
+    <EditText
+        android:id="@+id/vnos_prihranek"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        android:ems="10"
+        android:hint="Vnesi zeleni prihranek"
+        android:inputType="number"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/text_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/gumb_izracunLimita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="178dp"
+        android:text="Izracunaj limit"
+        tools:text="Izracunaj limit" />
+
+    <EditText
+        android:id="@+id/vnos_limit"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="211dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="Rocno vnesi limit"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/gumb_vnesiLimit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="152dp"
+        android:text="Vnesi limit"
+        tools:text="Vnesi limit" />
+</RelativeLayout>

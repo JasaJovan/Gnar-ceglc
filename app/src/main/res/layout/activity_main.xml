@@ -92,4 +92,23 @@
         android:layout_marginBottom="101dp"
         android:text="Vnesi" />
 
+    <Button
+        android:id="@+id/gumb_nastavitve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_toStartOf="@+id/gumb_vnesiStroske"
+        android:text="Odpri nastavitve"
+        tools:text="Odpri nastavitve" />
+
+    <Button
+        android:id="@+id/gumb_porocilo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/gumb_nastavitve"
+        android:text="Odpri porocilo"
+        tools:text="Odpri porocilo" />
+
 </RelativeLayout>
